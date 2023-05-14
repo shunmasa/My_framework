@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Page</title>
+</head>
+<body>
+	<select id="link-dropdown">
+		<option value="">Select a Link</option>
+		<option value="https://localhost/link1">Link 1</option>
+		<option value="https://localhost/link2">Link 2</option>
+		<option value="https://localhost/link3">Link 3</option>
+	</select>
+
+	<button id="submit-link-button">Submit</button>
+
+	<script type="text/javascript">
+	
+		document.getElementById('submit-link-button').addEventListener('click', function(e) {
+			// Get the selected value from the dropdown
+			const selectedValue = document.getElementById('link-dropdown').value;
+
+			
+			window.location.href = `https://localhost/index.php?endpoint=${selectedValue}`;
+		});
+	</script>
+</body>
+</html>
