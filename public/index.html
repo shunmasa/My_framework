@@ -2,17 +2,19 @@
 <html>
 <head>
     <title>Example Page</title>
+
 </head>
-<body>
+
     <select id="link-dropdown">
         <option value="">Select a Link</option>
-        <option value="/text">All Languages</option>
-        <option value="/link1/slug=1">Link 1</option>
+        <option value="index">Link 1</option>
         <option value="/link2/slug=2">Link 2</option>
         <option value="/link3/slug=3">Link 3</option>
     </select>
 
     <button id="submit-link-button">Submit</button>
+
+
 
     <script type="text/javascript">
     
@@ -21,11 +23,18 @@
             const selectedValue = document.getElementById('link-dropdown').value;
 
             // Call the API using the selected value as the endpoint
-            fetch(`http://localhost/api${selectedValue}.php,{ mode: 'no-cors' }`)
+            fetch(`http://localhost:8080/dpm_0.1/${selectedValue}.php`)
                 .then(response => response.json())
                 .then(data => console.log(data))
                 .catch(error => console.error(error));
         });
+
+
+	
     </script>
+
+
+
+	
 </body>
 </html>

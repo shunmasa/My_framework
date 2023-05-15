@@ -3,6 +3,7 @@
 
 require_once 'index.php';
 require_once './backend/config/index.php';
+require_once './backend/database/index.php';
 require_once './backend/helper/loadEnv.php';
 require_once './vendor/autoload.php';
 

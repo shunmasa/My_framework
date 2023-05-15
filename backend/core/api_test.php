@@ -79,7 +79,12 @@ trait ResponseTrait {
 
     public function send() {
         http_response_code($this->statusCode);
-        header('Content-Type: application/json');
+        // header('Content-Type: application/json');
+        header("Content-type: application/json; charset=UTF-8");
+        //Authorixation Token in the future 
+      //  header("Access-Control-Allow-Headers: Content-Type, Authorization");
+        header('Access-Control-Allow-Origin: *'); 
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
         echo json_encode($this->body);
     }
 }

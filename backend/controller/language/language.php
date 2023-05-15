@@ -11,13 +11,15 @@ class LanguageController {
 
     // public function getAllLanguages(Request $request): Response {
         public function getAllLanguages(): Response {
-        $statement = $this->db->query('SELECT * FROM language');
-      
-        $languages = $statement->fetchAll();
-       // error_log("....: " . print_r($statement , true));
-        return new Response(json_encode($languages));
+            $statement = $this->db->query('SELECT * FROM language');
         
-    }
+            $data = [];
+            while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+                $data[] = $row;
+            }
+            
+            return new Response(json_encode($data));
+        }
 
     function fetchLanguageById($id): Response {
         $statement = $this->db->query('SELECT * FROM languages WHERE id = ?');
