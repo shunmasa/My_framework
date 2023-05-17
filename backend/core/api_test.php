@@ -96,54 +96,58 @@ trait RouteTrait {
         $this->routes[] = [$method, $uri, $handler, $dbConnect];
     }
 
-//     public function handleRouteRequest(Request $request): ?Response {
-//         foreach ($this->routes as [$method, $uri, $handler, $dbConnect]) {
-//             if ($method !== $request->getMethod()) {
-//                 continue;
-//             }
-//             $regexUri = preg_replace('/\{([\w]+)\}/', '([^/]+)', $uri);
-//             $regexUri = str_replace('/', '\/', $regexUri);
-//             if (preg_match('/^' . $regexUri . '$/', $request->getUri(), $matches)) {
-//                 array_shift($matches);
-//                 $controller = new $handler($dbConnect);
-//                 $response = $controller($request);
-//                 if ($response instanceof Response) {
-//                     return $response;
-//                 }
-//                 break;
-//             }
+    public function handleRouteRequest(Request $request): ?Response {
+        foreach ($this->routes as [$method, $uri, $handler, $dbConnect]) {
+            if ($method !== $request->getMethod()) {
+                continue;
+            }
+            $regexUri = preg_replace('/\{([\w]+)\}/', '([^/]+)', $uri);
+            $regexUri = str_replace('/', '\/', $regexUri);
+            if (preg_match('/^' . $regexUri . '$/', $request->getUri(), $matches)) {
+                array_shift($matches);
+                if ($handler instanceof Closure) {
+                    $response = $handler($request);
+                } else {
+                    $controller = $handler[0];
+                    $response = $controller->{$handler[1]}($request);
+                }
+                error_log("response: " . print_r($response, true));
+                if ($response instanceof Response) {
+                    return $response;
+                }
+                break;
+            }
+        }
+        return null;
+    }
+}
+
+// public function handleRouteRequest(Request $request): ?Response {
+//     foreach ($this->routes as [$method, $uri, $handler, $dbConnect]) {
+//         if ($method !== $request->getMethod()) {
+//             continue;
 //         }
-//         return null;
+//         $regexUri = preg_replace('/\{([\w]+)\}/', '([^/]+)', $uri);
+//         $regexUri = str_replace('/', '\/', $regexUri);
+//         if (preg_match('/^' . $regexUri . '$/', $request->getUri(), $matches)) {
+//             array_shift($matches);
+//             if ($handler instanceof Closure) {
+//                 $response = $handler($request);
+//             } else {
+//                 $controller = $handler[0];
+//                 $response = $controller->{$handler[1]}($request);
+//             }
+//             error_log("response: " . print_r($response, true));
+//             if ($response instanceof Response) {
+//                 return $response;
+//             }
+//             break;
+//         }
 //     }
+//     return null;
 // }
 
-
-public function handleRouteRequest(Request $request): ?Response {
-    foreach ($this->routes as [$method, $uri, $handler, $dbConnect]) {
-        if ($method !== $request->getMethod()) {
-            continue;
-        }
-        $regexUri = preg_replace('/\{([\w]+)\}/', '([^/]+)', $uri);
-        $regexUri = str_replace('/', '\/', $regexUri);
-        if (preg_match('/^' . $regexUri . '$/', $request->getUri(), $matches)) {
-            array_shift($matches);
-            if ($handler instanceof Closure) {
-                $response = $handler($request);
-            } else {
-                $controller = $handler[0];
-                $response = $controller->{$handler[1]}($request);
-            }
-            error_log("response: " . print_r($response, true));
-            if ($response instanceof Response) {
-                return $response;
-            }
-            break;
-        }
-    }
-    return null;
-}
-
-}
+// }
 trait MiddlewareTrait {
     private array $middleware = [];
 

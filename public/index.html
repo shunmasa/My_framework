@@ -1,40 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Example Page</title>
-
+    <title>Test</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
     <select id="link-dropdown">
         <option value="">Select a Link</option>
-        <option value="index">Link 1</option>
-        <option value="/link2/slug=2">Link 2</option>
-        <option value="/link3/slug=3">Link 3</option>
+        <option value="en/teaching">http://localhost:8080/dpm_0.1/en/teaching</option>
+        <option value="en/teaching/1">http://localhost:8080/dpm_0.1/en/teaching/1</option>
+        <option value="en/teaching/2">http://localhost:8080/dpm_0.1/en/teaching/2</option>
+        <option value="ja/teaching">http://localhost:8080/dpm_0.1/ja/teaching</option>
+        <option value="en/news">http://localhost:8080/dpm_0.1/en/news</option>
+        <option value="ja/news">http://localhost:8080/dpm_0.1/ja/news</option>
+        <option value="en/news/1">http://localhost:8080/dpm_0.1/en/news/1</option>
+        <option value="en/news/2">http://localhost:8080/dpm_0.1/en/news/2</option>
     </select>
 
     <button id="submit-link-button">Submit</button>
-
+    <div id="container"/>
 
 
     <script type="text/javascript">
+        // Define the generateHTML function first
+        function generateHTML(data) {
+        //1 teaching 
+        //2 news 
+        console.log(data[0].fields.category_id)
+            if (data[0].fields.category_id == 1) {
+                return `
+                    <ul>
+                      ${data.map(item => `
+                        <li>
+                          <div>Teaching Letter in ${item.fields.language　=== 'en' ? 'English'　: '日本語'}.</div>
+                          <div>Id: ${item.fields.id}</div>
+                          <div>Name: ${item.fields.name}</div>
+                          <div>Slug: ${item.fields.slug}</div>
+                          <div>Text: ${item.fields.text}</div>
+                        </li>
+                      `).join('')}
+                    </ul>
+                  `;
+            } else if (data[0].fields.category_id == 2){
+                return `
+                <ul>
+                  ${data.map(item => `
+                    <li>
+                        <div>News in ${item.fields.language === 'en' ? 'English': '日本語'}.</div>
+                      <div>Id: ${item.fields.id}</div>
+                      <div>Name: ${item.fields.name}</div>
+                      <div>Slug: ${item.fields.slug}</div>
+                      <div>Airticle: ${item.fields.article}</div>
+                    </li>
+                  `).join('')}
+                </ul>
+              `;
+            } else{
+             return ;
+            }
+
+        }
+    
     
         document.getElementById('submit-link-button').addEventListener('click', function(e) {
-            // Get the selected value from the dropdown
+      
             const selectedValue = document.getElementById('link-dropdown').value;
-
-            // Call the API using the selected value as the endpoint
-            fetch(`http://localhost:8080/dpm_0.1/${selectedValue}.php`)
+    
+        
+            fetch(`http://localhost:8080/dpm_0.1/${selectedValue}`)
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    if (typeof data === 'string') {
+                        data = JSON.parse(data);
+                    }
+                    const container = document.getElementById('container');
+                    console.log(data);
+                    container.innerHTML = generateHTML(data);
+                })
                 .catch(error => console.error(error));
         });
-
-
-	
     </script>
-
-
-
+      
 	
 </body>
 </html>
