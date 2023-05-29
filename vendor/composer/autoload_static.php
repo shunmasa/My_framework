@@ -21,6 +21,7 @@ class ComposerStaticInit1a11b0b96e26780ade1d1f89e0481d8a
         ),
         'P' => 
         array (
+            'Predis\\' => 7,
             'PhpOption\\' => 10,
         ),
         'G' => 
@@ -45,6 +46,10 @@ class ComposerStaticInit1a11b0b96e26780ade1d1f89e0481d8a
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Predis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/predis/predis/src',
         ),
         'PhpOption\\' => 
         array (

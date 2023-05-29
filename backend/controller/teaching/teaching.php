@@ -9,7 +9,60 @@ class TeachingController {
 
     }
 
-    // public function getAllLanguages(Request $request): Response {
+     //   $formattedData = array();
+            // foreach ($data as $item) {
+            //     $formattedData[] = array('fields' => $item);
+            // }
+
+
+
+        public function getAllTeachingsByLanguage($language): Response {
+            $query = "SELECT * FROM Teaching WHERE language = :language";
+            $statment = $this->db->prepare($query);
+            $statment->bindParam(':language', $language);
+            $statment->execute();
+            $data = $statment->fetchAll(PDO::FETCH_ASSOC);
+
+
+            $metadata = [
+                'title' => 'Teaching Details',
+                'description' => 'Get details of a specific teaching',
+            ];
+
+            $response = new Response($data, 200, $metadata);
+
+            return $response;
+           
+        }
+        
+
+
+        function fetchTeachingBySlugAndLanguage($slug, $language): Response {
+         $statement = $this->db->prepare('SELECT * FROM teaching WHERE slug = ? AND language = ?');
+            $statement->execute([$slug, $language]);
+            
+            // $data = $statement->fetch(PDO::FETCH_ASSOC); -> object
+            $data = $statement->fetchAll(PDO::FETCH_OBJ);//-> arraay of object
+
+             if ($data) {
+                $metadata = [
+                    'title' => 'Teaching Details',
+                    'description' => 'Get details of a specific teaching',
+                ];
+    
+                $response = new Response($data, 200, $metadata);
+                return $response;
+            } else {
+                throw new Exception("Teaching not found");
+            }
+        }
+        
+
+
+    
+}
+
+ // public function getAllLanguages(Request $request): Response {
         // public function getAllTeachings(): Response {
          
         //     $statement = $this->db->query('SELECT * FROM teaching');
@@ -22,41 +75,5 @@ class TeachingController {
         //     return new Response(json_encode($data));
         // }
 
-
-        public function getAllTeachingsByLanguage($language): Response {
-            $query = "SELECT * FROM Teaching WHERE language = :language";
-            $statment = $this->db->prepare($query);
-            $statment->bindParam(':language', $language);
-            $statment->execute();
-            $data = $statment->fetchAll(PDO::FETCH_ASSOC);
-        
-            // Modify the output structure to match the desired format
-            $formattedData = array();
-            foreach ($data as $item) {
-                $formattedData[] = array('fields' => $item);
-            }
-        
-            return new Response(json_encode($formattedData));
-        }
-        
-
-
-        function fetchTeachingByIdAndLanguage($id, $language): Response {
-            $statement = $this->db->prepare('SELECT * FROM teaching WHERE id = ? AND language = ?');
-            $statement->execute([$id, $language]);
-            
-            $teaching = $statement->fetch(PDO::FETCH_ASSOC);
-            // var_dump($teaching);
-            if ($teaching) {
-                return new Response(json_encode($teaching));
-            } else {
-                throw new Exception("Teaching not found");
-            }
-        }
-        
-
-
-    
-}
 
 ?>

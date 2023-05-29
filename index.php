@@ -1,62 +1,76 @@
 <?php
-require_once './backend/core/api_test.php';
+require_once './backend/core/api_caches.php';
 require_once './backend/database/connect.php';
-
 require_once './backend/api/teaching.php';
 require_once './backend/api/news.php';
+require_once './backend/api/users.php';
+
+require 'vendor/autoload.php';
+
+
 // declare(strict_types=1);
 
 // spl_autoload_register(function ($class) {
 //     require __DIR__ . "/dpm_0.1/$class.php";
 // });
 
-$parentDir = dirname(__DIR__);
+
+
 
 function isRequestUriMatch($string) {
     return strpos($_SERVER['REQUEST_URI'], $string) !== false;
 }
 
-$uri = str_replace($parentDir, '', $_SERVER['REQUEST_URI']);
 
-$slug = explode('/', $uri)[2]; 
-// var_dump($uri);
-$endpoint = explode('/', $uri)[3]; 
-//  var_dump($endpoint);
-$id = explode('/', $uri)[4]; 
-//  var_dump($id);
-$requestMethod = $_SERVER['REQUEST_METHOD']; 
-$requestUri = '';
-if (is_numeric($id) && $id !== '') {
-    $requestUri = '/' . $slug . '/' . $endpoint . '/' . $id;
-} else {
-    $requestUri = '/' . $slug . '/' . $endpoint;
+
+$parentDir = dirname(__DIR__);
+$uri = str_replace($parentDir, '', $_SERVER['REQUEST_URI']);
+$prefix = '/dpm_0.1';
+if (strpos($uri, $prefix) === 0) {
+    $requestUri = substr($uri, strlen($prefix));
 }
 
-//  var_dump($requestUri);
+$requestMethod = $_SERVER['REQUEST_METHOD'];
+
+var_dump($requestUri);
+function handleApiRequest($apiClass, $requestMethod, $requestUri )
+{
+    $api = new $apiClass($requestMethod, $requestUri );
+    $request = new Request($requestMethod,$requestUri);
+    $response = $api->handleRequest($request);
+    $response->send();
+}
+
+
+
+
 switch (true) {
     case isRequestUriMatch('/teaching'):
-        $teachingApi = new TeachingApi($requestMethod, $slug, '/' . $endpoint, $id);
     
-        $request = new Request($requestMethod, $requestUri);
-      
-        try {
-            $response = $teachingApi->handleRequest($request);
-            $response->send();
-        } catch (ResourceNotFoundException $e) {
-            http_response_code(404);
-        }
+        handleApiRequest(TeachingApi::class, $requestMethod,$requestUri);   
         break;
         case isRequestUriMatch('/news'):
-            $teachingApi = new NewsApi($requestMethod, $slug, '/' . $endpoint, $id);
-            $request = new Request($requestMethod, $requestUri);
-        try {
-            $response = $teachingApi->handleRequest($request);
-            $response->send();
-        } catch (ResourceNotFoundException $e) {
-            http_response_code(404);
-        }
+            // handleApiRequest(NewsApi::class, $requestMethod, $requestUri,$slug, $endpoint, $id);
+            break;
+       case isRequestUriMatch('/login'):
+             handleApiRequest(UsersApi::class, $requestMethod, $requestUri);
         break;
+        case isRequestUriMatch('/logout'):
+            // handleApiRequest(UsersApi::class, $requestMethod, $requestUri,$slug, $endpoint, $id);
+            break;
+        case isRequestUriMatch('/register'):
+            // handleApiRequest(UsersApi::class, $requestMethod, $requestUri,$slug, $endpoint, $id);
+            break;
+        case isRequestUriMatch('/users'):
+            // handleApiRequest(UsersApi::class, $requestMethod, $requestUri,$slug, $endpoint, $id);
+            break;
     default:
         echo 'Not Found';
 }
-?>
+
+
+
+
+
+// 
+ ?>

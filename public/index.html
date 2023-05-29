@@ -8,13 +8,13 @@
     <select id="link-dropdown">
         <option value="">Select a Link</option>
         <option value="en/teaching">http://localhost:8080/dpm_0.1/en/teaching</option>
-        <option value="en/teaching/1">http://localhost:8080/dpm_0.1/en/teaching/1</option>
-        <option value="en/teaching/2">http://localhost:8080/dpm_0.1/en/teaching/2</option>
+        <option value="en/teaching/0123-en">http://localhost:8080/dpm_0.1/en/teaching/0123-en</option>
+        <option value="en/teaching/0124-en">http://localhost:8080/dpm_0.1/en/teaching/0124-en</option>
         <option value="ja/teaching">http://localhost:8080/dpm_0.1/ja/teaching</option>
         <option value="en/news">http://localhost:8080/dpm_0.1/en/news</option>
         <option value="ja/news">http://localhost:8080/dpm_0.1/ja/news</option>
-        <option value="en/news/1">http://localhost:8080/dpm_0.1/en/news/1</option>
-        <option value="en/news/2">http://localhost:8080/dpm_0.1/en/news/2</option>
+        <option value="en/news/0123-en">http://localhost:8080/dpm_0.1/en/news/0123-en</option>
+        <option value="en/news/0124-en">http://localhost:8080/dpm_0.1/en/news/0124-en</option>
     </select>
 
     <button id="submit-link-button">Submit</button>
@@ -26,31 +26,31 @@
         function generateHTML(data) {
         //1 teaching 
         //2 news 
-        console.log(data[0].fields.category_id)
-            if (data[0].fields.category_id == 1) {
+      
+            if (data.data[0].category_id == 1) {
                 return `
                     <ul>
-                      ${data.map(item => `
+                      ${data.data.map(item => `
                         <li>
-                          <div>Teaching Letter in ${item.fields.language　=== 'en' ? 'English'　: '日本語'}.</div>
-                          <div>Id: ${item.fields.id}</div>
-                          <div>Name: ${item.fields.name}</div>
-                          <div>Slug: ${item.fields.slug}</div>
-                          <div>Text: ${item.fields.text}</div>
+                          <div>Teaching Letter in ${item.language　=== 'en' ? 'English'　: '日本語'}.</div>
+                          <div>Id: ${item.id}</div>
+                          <div>Name: ${item.name}</div>
+                          <div>Slug: ${item.slug}</div>
+                          <div>Text: ${item.text}</div>
                         </li>
                       `).join('')}
                     </ul>
                   `;
-            } else if (data[0].fields.category_id == 2){
+            } else if (data.data[0].category_id == 2){
                 return `
                 <ul>
-                  ${data.map(item => `
+                  ${data.data.map(item => `
                     <li>
-                        <div>News in ${item.fields.language === 'en' ? 'English': '日本語'}.</div>
-                      <div>Id: ${item.fields.id}</div>
-                      <div>Name: ${item.fields.name}</div>
-                      <div>Slug: ${item.fields.slug}</div>
-                      <div>Airticle: ${item.fields.article}</div>
+                        <div>News in ${item.language === 'en' ? 'English': '日本語'}.</div>
+                      <div>Id: ${item.id}</div>
+                      <div>Name: ${item.name}</div>
+                      <div>Slug: ${item.slug}</div>
+                      <div>Airticle: ${item.article}</div>
                     </li>
                   `).join('')}
                 </ul>
@@ -74,7 +74,7 @@
                         data = JSON.parse(data);
                     }
                     const container = document.getElementById('container');
-                    console.log(data);
+                    console.log('data',data);
                     container.innerHTML = generateHTML(data);
                 })
                 .catch(error => console.error(error));
