@@ -1,4 +1,5 @@
 <?php
+
 use Predis\Client;
 
 
@@ -43,35 +44,6 @@ class RedisCache {
     }
 }
 
-
-
-class AuthenticationHeader {
-    public function handle(Request $request, $next) {
-        if (!$this->hasBearerToken($request)) {
-            $token = $this->getCookieValue($request, 'auth_token');
-            if ($token !== null) {
-                $request->addHeader('Authorization', 'Bearer ' . $token);
-            }
-        }
-        return $next($request);
-    }
-
-    private function hasBearerToken(Request $request): bool {
-        $authorizationHeader = $request->getHeaders()['Authorization'] ?? null;
-        if ($authorizationHeader && $this->startsWith(strtolower($authorizationHeader), 'bearer ')) {
-            return true;
-        }
-        return false;
-    }
-
-    private function getCookieValue(Request $request, string $cookieName) {
-        return $request->getParam($cookieName);
-    }
-
-    private function startsWith(string $haystack, string $needle): bool {
-        return strpos($haystack, $needle) === 0;
-    }
-}
 
 
 
@@ -163,6 +135,8 @@ class Router {
     }
 }
 
+
+
 class Request {
     private string $method;
     private string $uri;
@@ -206,74 +180,6 @@ class Request {
     }
 }
 
-// interface ResponseInterface {
-//     public function send();
-//     public function setData(array $data);
-//     public function getBody(): array;
-//     public function getMetadata(): array;
-//     public function getStatusCode(): int;
-// }
-
-
-//  class Response implements ResponseInterface {
-//     use ResponseTrait, MetadataTrait;
-
-//     private array $metadata;
-//     private array $body;
-//     private int $statusCode;
-
-//     public function __construct(array $body = [] , int $statusCode = 200, array $metadata = []) {
-//         $this->body = $body;
-//         $this->statusCode = $statusCode;
-//         $this->metadata = $metadata;
-//     }
-
-//     public function getBody(): array {
-//         return $this->body;
-//     }
-//     public function setData(array $data) {
-//         $this->body = $data;
-//     }
-
-//     public function getMetadata(): array {
-//         return $this->metadata;
-//     }
-
-//     public function getStatusCode(): int {
-//         return $this->statusCode;
-//     }
-
-//     public function send() {
-//         http_response_code($this->statusCode);
-     
-//         $response = array(
-//             'data' => $this->body,
-//             'metadata' => $this->metadata
-//         );
-//         var_dump($response);
-//         echo json_encode($response);
-//     }
-// }
-
-
-
-// trait ResponseTrait {
-//     private array $body;
-//     private int $statusCode;
-
-//     public function __construct(array $body, int $statusCode = 200) {
-//         $this->body = $body;
-//         $this->statusCode = $statusCode;
-//     }
-
-//     public function send() {
-//         http_response_code($this->statusCode);
-//         header("Content-type: application/json; charset=UTF-8");
-//         header('Access-Control-Allow-Origin: *'); 
-//         header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-//         echo json_encode($this->body);
-//     }
-// }
 interface ResponseInterface {
     public function send();
     public function setData(array $data);
@@ -343,6 +249,134 @@ class Response implements ResponseInterface {
     }
 }
 
+
+// interface ResponseInterface {
+//     public function send();
+//     public function setData(array $data);
+//     public function getBody(): array;
+//     public function getMetadata(): array;
+//     public function getStatusCode(): int;
+//     public function getMessage(): string;
+//     public function setMessage(string $message);
+//     public function setStatusCode(int $statusCode);
+//     public function getHeaders(): array;
+//     public function setHeaders(array $headers): void;
+//     public function addHeader(string $name, string $value): void;
+//     public function getRefreshTokenFromSession(string $name): ?string;
+//     public function setAsSession(string $name, string $value, int $expiration): void;
+//     public function clearToken(string $name): void;
+// }
+
+
+// trait ResponseTrait {
+//     private array $body;
+//     private int $statusCode;
+//     private string $message;
+//     private array $metadata;
+//     private array $headers;
+
+//     public function __construct(array $body = [], int $statusCode = 200, string $message = '', array $metadata = [], array $headers = []) {
+//         $this->body = $body;
+//         $this->statusCode = $statusCode;
+//         $this->message = $message;
+//         $this->metadata = $metadata;
+//         $this->headers = $headers;
+//     }
+    
+
+//     public function send() {
+//         http_response_code($this->statusCode);
+//         foreach ($this->headers as $name => $values) {
+//             foreach ($values as $value) {
+//                 header("$name: $value");
+//             }
+//         }
+
+//         $response = array(
+//             'data' => $this->body,
+//             'message' => $this->message,
+//             'metadata' => $this->metadata
+//         );
+//         echo json_encode($response);
+//     }
+
+//     public function setData(array $data) {
+//         $this->body = $data;
+//     }
+
+//     public function getBody(): array {
+//         return $this->body;
+//     }
+
+//     public function getMetadata(): array {
+//         return $this->metadata;
+//     }
+
+//     public function getStatusCode(): int {
+//         return $this->statusCode;
+//     }
+
+//     public function getMessage(): string {
+//         return $this->message;
+//     }
+
+//     public function setMessage(string $message) {
+//         $this->message = $message;
+//     }
+
+//     public function setStatusCode(int $statusCode) {
+//         $this->statusCode = $statusCode;
+//     }
+
+//     public function getHeaders(): array {
+//         return $this->headers;
+//     }
+
+//     public function setHeaders(array $headers): void {
+//         $this->headers = $headers;
+//     }
+
+//     public function addHeader(string $name, string $value): void {
+//         $this->headers[$name][] = $value;
+//     }
+       
+    
+//     public function getRefreshTokenFromSession($name): ?string {
+//         session_start();
+//         return $_SESSION[$name] ?? null;
+//     }
+    
+    
+//     public function setAsSession(string $name, string $value, int $expiration = 0): void {
+//             session_commit();
+//             ini_set("session.gc_maxlifetime", (string) $expiration);
+//             session_start();
+//         // }
+    
+//           $_SESSION[$name] = $value;
+//     }
+    
+
+//     public function clearToken(string $name): void {
+//         unset($_SESSION[$name]);
+//     }
+
+// }
+
+
+// class Response implements ResponseInterface {
+//     use ResponseTrait;
+
+//     public function __construct(array $body = [], int $statusCode = 200, array $metadata = [], string $message = '', array $headers = []) {
+//         $this->body = $body;
+//         $this->statusCode = $statusCode;
+//         $this->metadata = $metadata;
+//         $this->message = $message;
+//         $this->headers = $headers;
+//     }
+// }
+
+
 trait RouteTrait {
     private array $routes = [];
 
@@ -393,7 +427,7 @@ trait MiddlewareTrait {
                 $requestOrResponse = $middleware($requestOrResponse);
             }
         }
-        error_log("middle: " . print_r($requestOrResponse, true));
+        // error_log("middle: " . print_r($requestOrResponse, true));
         return $requestOrResponse;
     }
 

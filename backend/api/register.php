@@ -1,11 +1,11 @@
 <?php
 
 require_once './backend/core/api_caches.php';
-require_once './backend/core/auth.php';
 require_once './backend/database/connect.php';
 require_once './backend/controller/users/users.php';
+require_once './backend/core/auth.php';
 
-class UsersApi {
+class RegisterApi {
     private $dbConnect;
     private $router;
 
@@ -17,12 +17,16 @@ class UsersApi {
         $authentication = new AuthenticationRequest();
         $token = $authentication->getToken();
 
-
-
         $this->router->addRoute($method, $endpoint , function (Request $request) use ($userController,$token) {
-             $user = $userController->getUser($token);
-            return new Response($user->getBody());
+        $requestHandler = new RequestHandler();
+        $email = $requestHandler->getEmail();
+        $password = $requestHandler->getPassword();
+        $name = $requestHandler->getName();
+     
+        $user =$userController->registerUser($email, $password,$name);
+            return  new Response($user->getBody());
         }, $this->dbConnect); 
+
 
     }
 
@@ -30,8 +34,3 @@ class UsersApi {
         return $this->router->handle($request);
     }
 }
-
-
-
-
-?>

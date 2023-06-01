@@ -17,9 +17,9 @@ class TeachingApi {
         $urlParts = $this->separateUrl($endpoint);
         $base = '/' .$urlParts[1];
         $language = $urlParts[0];
-        $slug = $urlParts[2];
+        $slug = isset($urlParts[2]) ? $urlParts[2] : '';
 
-        error_log("....: " . print_r( $urlParts, true));
+      
       $this->router->addRoute($method, '/'.$language.$base, function ($request) use ($teachingController,$language) {
       
         $teachings = $teachingController->getAllTeachingsByLanguage($language);

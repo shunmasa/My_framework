@@ -6,37 +6,40 @@ class UsersController {
 
     public function __construct(DatabaseConnect $dbConnect) {
         $this->db = $dbConnect->connect();
+     
     }
-    
 
-    public function register(string $email, string $password): bool {
- 
-        $query = "SELECT * FROM Users WHERE email = :email";
+
+    public function registerUser(string $email, string $password, string $name): Response {
+        $query = "SELECT email, password FROM Users WHERE email = :email";
         $statement = $this->db->prepare($query);
         $statement->execute(['email' => $email]);
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-
+    
         if ($user) {
-         
-            return false;
+            $errorResponse = new Response(['error' => 'Registered email already exists'], 401);
+            return $errorResponse;
         }
-
-
+    
         $token = bin2hex(random_bytes(16));
-
+    
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
+    
         // Insert the new user into the database
-        $query = "INSERT INTO Users (email, password, token) VALUES (:email, :password, :token)";
+        $query = "INSERT INTO Users (email, password, name, token) VALUES (:email, :password, :name, :token)";
         $statement = $this->db->prepare($query);
-        $statement->execute(['email' => $email, 'password' => $hashedPassword, 'token' => $token]);
-
-        return true;
+        $statement->execute(['email' => $email, 'password' => $hashedPassword, 'name' => $name, 'token' => $token]);
+    
+        // Create the response with the registered user data
+        $response = new Response(['message' => 'New user is registered']);
+    
+        return $response;
     }
+    
 
-    public function login(string $email, string $password): bool {
-        $query = "SELECT * FROM Users WHERE email = :email";
+    public function getToken(string $email, string $password): Response {
+        $query = "SELECT id, email, password FROM Users WHERE email = :email";
         $statement = $this->db->prepare($query);
         $statement->execute(['email' => $email]);
         $user = $statement->fetch(PDO::FETCH_ASSOC);
@@ -45,63 +48,42 @@ class UsersController {
         if ($user && password_verify($password, $user['password'])) {
             // Generate a new token
             $token = bin2hex(random_bytes(16));
-
-      
-
           
-          
-            // Save the token in the database
             $this->saveToken($user['id'], $token);
 
             // Update the token in the Users table
             $this->updateUserToken($user['id'], $token);
-            setcookie('auth_token', $token, time() + 3600, '/');
-            // $response = new Response();
-            // $response->setMessage('Login successful');
-            // $response->setStatusCode(200);
-            // $response->send();
-        
-            return true;
+            $response = new Response(['token' => $token]);
+            return $response;
         }
 
-        return false;
+        $errorResponse = new Response(['error' => 'Invalid email or password'], 401);
+        return $errorResponse;
     }
 
-    public function logout(): void {
-        if ($this->getAuthCookie() !== null) {
-            $token = $this->getAuthCookie();
-            $this->deleteToken($token);
-            setcookie('auth_token', '', time() - 3600, "/"); // Expire the cookie
-        }
-    }
+ 
 
-    public function isLoggedIn(): bool {
-        return $this->getAuthCookie() !== '';
-    }
-
-    public function getUser(): ?array {
-        $token = $this->getAuthCookie();
-        error_log("....: " . print_r(  $token, true));
+    public function getUser(string $token): Response {
+       
         if ($token !== null) {
-            // Check if the token is valid
-            if ($this->isTokenValid($token)) {
-                $user = $this->getUserByToken($token);
-                return $user;
+                if ($this->isTokenValid($token)) {
+                    $user = $this->getUserByToken($token);
+                    
+                    $response = new Response($user,200);
+                    return $response;
+                }
+                $errorResponse = new Response(['error' => 'No Token exists'], 401);
+                return $errorResponse;
             }
-        }
+            $errorResponse = new Response(['error' => 'No User exists'], 401);
+            return $errorResponse;
+         }
+        
     
-        // User is not authenticated
-        return null;
-    }
-    
-    private function getAuthCookie(): ?string {
-        if (isset($_COOKIE['auth_token'])) {
-            return $_COOKIE['auth_token'];
-        }
-        return '';
-    }
 
-    private function isTokenValid(string $token): bool {
+
+
+    public function isTokenValid(string $token): bool {
         $query = "SELECT * FROM Auth_tokens WHERE token = :token";
         $statement = $this->db->prepare($query);
         $statement->execute(['token' => $token]);
@@ -129,7 +111,7 @@ class UsersController {
         $statement->execute(['token' => $token, 'user_id' => $userId]);
     }
 
-    private function deleteToken(string $token): void {
+    public function deleteToken(string $token): void {
         $query = "DELETE FROM Auth_tokens WHERE token = :token";
         $statement = $this->db->prepare($query);
         $statement->execute(['token' => $token]);
@@ -148,9 +130,8 @@ class UsersController {
     }
 }
 
-
-$dbConnect = new DatabaseConnect();
-$usersController = new UsersController($dbConnect);
+// $dbConnect = new DatabaseConnect();
+// $usersController = new UsersController($dbConnect);
 
 // $user = $usersController->getUser();
 // if ($user) {
@@ -165,19 +146,13 @@ $usersController = new UsersController($dbConnect);
 //     echo 'User is not logged in.';
 // }
 
-$user = $usersController->getUser();
-if ($user) {
-    echo 'User details: ' . print_r($user, true);
-} else {
-    echo 'User is not authenticated.';
-}
-
-//  $email = '12345@example.com';
-// $password = '1234567';
-// $result = $usersController->login($email, $password);
-// if ($result) {
-//     echo 'Login successful.';
+// $user = $usersController->getUser('8ac10bf8d24a17f5c9059f6532ccf1c7');
+// error_log("....: " . print_r($user , true));
+// // if ($result) {
+// if ($user) {
+//     echo 'User details: ' . print_r($user, true);
 // } else {
-//     echo 'Invalid email or password.';
+//     echo 'User is not authenticated.';
 // }
+
 ?>

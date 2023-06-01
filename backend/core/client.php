@@ -73,10 +73,7 @@ trait RequestFilter {
     }
 
     private function filterValue($value) {
-        // Apply necessary filtering/sanitization here
-        // For example, you can use functions like htmlspecialchars or htmlentities
-
-        // Example using htmlspecialchars
+    
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     }
 }
