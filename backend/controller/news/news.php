@@ -12,12 +12,16 @@ class NewsController {
 
     public function getAllNews(): Response {
         $statement = $this->db->query('SELECT * FROM news');
-        $data = [];
-        while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-            $data[] = $row;
-        }
-        
-        return new Response(json_encode($data));
+        $statement->execute();
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $metadata = [
+                'title' => 'News Details',
+                'description' => 'Get details of a specific news',
+            ];
+    
+            $response = new Response($data, 200, $metadata);
+    
+            return $response;
     }
 
 

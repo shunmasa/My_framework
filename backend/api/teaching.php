@@ -14,12 +14,30 @@ class TeachingApi {
         $this->router = new Router();
         $teachingController = new TeachingController($this->dbConnect);
      
+
+
+
+
         $urlParts = $this->separateUrl($endpoint);
-        $base = '/' .$urlParts[1];
-        $language = $urlParts[0];
+        $base = isset($urlParts[1]) ? '/' .$urlParts[1] : '';
+        $language = isset($urlParts[0]) ? $urlParts[0] : '';
         $slug = isset($urlParts[2]) ? $urlParts[2] : '';
 
+
+        $this->router->addRoute($method, '/teaching', function ($request) use ($teachingController) {
+        
+          $teaching = $teachingController->getAllTeachings();
+          return new Response($teaching->getBody(),$teaching->getStatusCode(),$teaching->getMetadata());
+
+      }, $this->dbConnect);
+
+
+        $this->router->addRoute($method, '/'.$language.$base, function ($request) use ($teachingController,$language) {
       
+          $teachings = $teachingController->getAllTeachingsByLanguage($language);
+           return new Response($teachings->getBody(),$teachings->getStatusCode(),$teachings->getMetadata());
+       }, $this->dbConnect);
+
       $this->router->addRoute($method, '/'.$language.$base, function ($request) use ($teachingController,$language) {
       
         $teachings = $teachingController->getAllTeachingsByLanguage($language);

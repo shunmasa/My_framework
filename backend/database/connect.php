@@ -27,32 +27,32 @@ require_once './vendor/autoload.php';
     $loader = new LoadEnvVariables();
     $loader->loadEnvVariables();
      
-      // if($_SERVER['SERVER_NAME'] == 'localhost'){
-      //   $this->config = new DatabaseConfig(
-      //     getenv('DV_DB_HOST'),
-      //     getenv('DV_DB_USERNAME'),
-      //     getenv('DV_DB_PASSWORD'),
-      //     getenv('DV_DB_DATABASE')
-      // );
-      // }else{
-      //   $this->config = new DatabaseConfig(
-      //     getenv('PD_DB_HOST'),
-      //     getenv('PD_DB_USERNAME'),
-      //     getenv('PD_DB_PASSWORD'),
-      //     getenv('PD_DB_DATABASE')
-      // );
-      //  }
-  
-      //   $dotenv = Dotenv\Dotenv::createUnsafeImmutable('./');
-      // $dotenv->load();
-  
-  
-      $this->config = new DatabaseConfig(
+      if($_SERVER['SERVER_NAME'] == 'localhost'){
+        $this->config = new DatabaseConfig(
           getenv('DV_DB_HOST'),
           getenv('DV_DB_USERNAME'),
           getenv('DV_DB_PASSWORD'),
           getenv('DV_DB_DATABASE')
       );
+      }else{
+        $this->config = new DatabaseConfig(
+          getenv('PD_DB_HOST'),
+          getenv('PD_DB_USERNAME'),
+          getenv('PD_DB_PASSWORD'),
+          getenv('PD_DB_DATABASE')
+      );
+       }
+  
+      //   $dotenv = Dotenv\Dotenv::createUnsafeImmutable('./');
+      // $dotenv->load();
+  
+  
+      // $this->config = new DatabaseConfig(
+      //     getenv('DV_DB_HOST'),
+      //     getenv('DV_DB_USERNAME'),
+      //     getenv('DV_DB_PASSWORD'),
+      //     getenv('DV_DB_DATABASE')
+      // );
     
     }
   

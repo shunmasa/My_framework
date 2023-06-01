@@ -15,6 +15,24 @@ class TeachingController {
             // }
 
 
+            public function getAllTeachings(): Response {
+         
+                $statment = $this->db->query('SELECT * FROM teaching');
+                $statment->execute();
+                $data  = $statment->fetchAll(PDO::FETCH_ASSOC);
+                 
+                
+                $metadata = [
+                    'title' => 'Teaching Details',
+                    'description' => 'Get details of a specific teaching',
+                ];
+    
+                $response = new Response($data, 200, $metadata);
+    
+                return $response;
+            }
+    
+
 
         public function getAllTeachingsByLanguage($language): Response {
             $query = "SELECT * FROM Teaching WHERE language = :language";
@@ -62,18 +80,6 @@ class TeachingController {
     
 }
 
- // public function getAllLanguages(Request $request): Response {
-        // public function getAllTeachings(): Response {
-         
-        //     $statement = $this->db->query('SELECT * FROM teaching');
-        
-        //     $data = [];
-        //     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-        //         $data[] = $row;
-        //     }
-            
-        //     return new Response(json_encode($data));
-        // }
 
 
 ?>
