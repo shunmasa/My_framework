@@ -5,7 +5,7 @@ require_once './backend/database/connect.php';
 require_once './backend/controller/teaching/teaching.php';
 require_once './backend/helper/util.php';
 class TeachingApi {
-    use SeparateUrlTrait; 
+   use UrlSeparationTrait;
     private $dbConnect;
     private $router;
 
@@ -13,16 +13,12 @@ class TeachingApi {
         $this->dbConnect = new DatabaseConnect();
         $this->router = new Router();
         $teachingController = new TeachingController($this->dbConnect);
+    
+
+        $base = $this->getBase($endpoint);
+        $language = $this->getLanguage($endpoint);
+        $slug = $this->getSlug($endpoint);
      
-
-
-
-
-        $urlParts = $this->separateUrl($endpoint);
-        $base = isset($urlParts[1]) ? '/' .$urlParts[1] : '';
-        $language = isset($urlParts[0]) ? $urlParts[0] : '';
-        $slug = isset($urlParts[2]) ? $urlParts[2] : '';
-
 
         $this->router->addRoute($method, '/teaching', function ($request) use ($teachingController) {
         
@@ -32,12 +28,7 @@ class TeachingApi {
       }, $this->dbConnect);
 
 
-        $this->router->addRoute($method, '/'.$language.$base, function ($request) use ($teachingController,$language) {
-      
-          $teachings = $teachingController->getAllTeachingsByLanguage($language);
-           return new Response($teachings->getBody(),$teachings->getStatusCode(),$teachings->getMetadata());
-       }, $this->dbConnect);
-
+     
       $this->router->addRoute($method, '/'.$language.$base, function ($request) use ($teachingController,$language) {
       
         $teachings = $teachingController->getAllTeachingsByLanguage($language);
@@ -45,9 +36,8 @@ class TeachingApi {
      }, $this->dbConnect);
 
    
-        
-
-    $this->router->addRoute($method, '/'.$language.$base.'/'.$slug, function ($request) use ($teachingController,$slug,$language) {
+   
+    $this->router->addRoute( $method, '/'.$language.$base.'/'.$slug, function ($request) use ($teachingController,$slug,$language) {
         
             $teaching = $teachingController->fetchTeachingBySlugAndLanguage($slug,$language);
             return new Response($teaching->getBody(),$teaching->getStatusCode(),$teaching->getMetadata());

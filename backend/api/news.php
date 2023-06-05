@@ -5,7 +5,7 @@ require_once './backend/database/connect.php';
 require_once './backend/controller/news/news.php';
 require_once './backend/helper/util.php';
 class NewsApi {
-    use SeparateUrlTrait; 
+    use UrlSeparationTrait;
     private $dbConnect;
     private $router;
 
@@ -15,10 +15,9 @@ class NewsApi {
         $this->router = new Router();
    
         $newsController = new NewsController($this->dbConnect);
-        $urlParts = $this->separateUrl($endpoint);
-        $base = isset($urlParts[1]) ? '/' .$urlParts[1] : '';
-        $language = isset($urlParts[0]) ? $urlParts[0] : '';
-        $slug = isset($urlParts[2]) ? $urlParts[2] : '';
+        $base = $this->getBase($endpoint);
+        $language = $this->getLanguage($endpoint);
+        $slug = $this->getSlug($endpoint);
 
         $this->router->addRoute($method, '/news' , function ($request) use ($newsController) {
             $news = $newsController->getAllNews();

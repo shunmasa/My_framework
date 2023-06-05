@@ -14,10 +14,9 @@ class RegisterApi {
         $this->dbConnect = new DatabaseConnect();
         $this->router = new Router();
         $userController = new UsersController($this->dbConnect);
-        $authentication = new AuthenticationRequest();
-        $token = $authentication->getToken();
+       
 
-        $this->router->addRoute($method, $endpoint , function (Request $request) use ($userController,$token) {
+        $this->router->addRoute($method, $endpoint , function (Request $request) use ($userController) {
         $requestHandler = new RequestHandler();
         $email = $requestHandler->getEmail();
         $password = $requestHandler->getPassword();

@@ -7,8 +7,10 @@ require_once './backend/core/auth.php';
 require_once './backend/api/teaching.php';
 require_once './backend/api/news.php';
 require_once './backend/api/users.php';
+require_once './backend/api/create.php';
 require_once './backend/api/token.php';
 require_once './backend/api/register.php';
+require_once './apiHandler.php';
 require 'vendor/autoload.php';
 
 
@@ -34,58 +36,101 @@ if (strpos($uri, $prefix) === 0) {
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 
+$apiRoutes = [
+    '/teaching' => ['class' => TeachingApi::class, 'auth' => false],
+    '/news' => ['class' => NewsApi::class, 'auth' => false],
+    '/getToken' => ['class' => TokenApi::class, 'auth' => false],
+    '/register' => ['class' => RegisterApi::class, 'auth' => false],
+    '/user' => ['class' => UsersApi::class, 'auth' => true],
+    '/collections' => ['class' => CreateApi::class, 'auth' => true]
+];
 
-function handleApiRequest($apiClass, $requestMethod, $requestUri )
-{
-    $api = new $apiClass($requestMethod, $requestUri );
-    $request = new Request($requestMethod,$requestUri);
-    $response = $api->handleRequest($request);
-    $response->send();
+
+function startsWith(string $string, string $substring): bool {
+    return substr($string, 0, strlen($substring)) === $substring;
 }
 
-function authHandleApiRequest($apiClass, $requestMethod, $requestUri)
-{
-    $authentication = new AuthenticationRequest();
-
-    if (!$authentication->verifyToken()) {
-        $response = new Response([], 401);
-        $response->setMessage('Unauthorized');
-        $response->send();
-        return;
+foreach ($apiRoutes as $route => $api) {
+    if (isRequestUriMatch($route)) {
+        if ($api['auth']) {
+            ApiHandler::authHandleApiRequest($api['class'], $requestMethod, $requestUri);
+        } else {
+            ApiHandler::handleApiRequest($api['class'], $requestMethod, $requestUri);
+        }
+        exit;
     }
- 
-    $api = new $apiClass($requestMethod, $requestUri);
-    $request = new Request($requestMethod, $requestUri);
-    $rateLimiter = new RateLimiter(10, 60); 
-    $rateLimiter->makeRequest($request->getUri());
-    $response = $api->handleRequest($request);
-    $response->send();
 }
 
+echo 'Not Found';
 
 
 
 
 
-switch (true) {
-    case isRequestUriMatch('/teaching'):
-        authHandleApiRequest(TeachingApi::class, $requestMethod,$requestUri);   
-        break;
-        case isRequestUriMatch('/news'):
-        authHandleApiRequest(NewsApi::class, $requestMethod, $requestUri);
-        break;
-       case isRequestUriMatch('/setToken'):
-         handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
-        break;
-        case isRequestUriMatch('/register'):
-        authHandleApiRequest(RegisterApi::class, $requestMethod, $requestUri);
-        break;
-        case isRequestUriMatch('/users'):
-        authHandleApiRequest(UsersApi::class, $requestMethod, $requestUri);
-        break;
-    default:
-        echo 'Not Found';
-}
+// $apiRoutes = [
+//     '/teaching' => ['class' => TeachingApi::class, 'auth' => true, 'not_auth' => ['GET']],// GET deoes not need auth , but else needs auth
+//     '/news' => ['class' => NewsApi::class, 'auth' => true, 'not_auth' => ['GET']],// GET deoes not need auth , but else needs auth
+//     '/setToken' => ['class' => TokenApi::class, 'auth' => false, 'not_auth' => []],// not auth
+//     '/register' => ['class' => RegisterApi::class, 'auth' => false, 'not_auth' => []],//not auth 
+//     '/user' => ['class' => UsersApi::class, 'auth' => true, 'not_auth' => []],//auth 
+//     '/collections' =>['class' => UsersApi::class, 'auth' => true, 'not_auth' => []]
+// ];
+
+// $authNotRequiredClasses = [TeachingApi::class, NewsApi::class, TokenApi::class];
+
+// foreach ($apiRoutes as $route => $api) {
+//     if (isRequestUriMatch($route)) {
+//         $isAuthRoute = $api['auth'] && $route !== '/user';
+//         $isNotAuthMethod = $requestMethod === 'GET' && !in_array($requestMethod, $api['not_auth']);
+
+//         if ($isAuthRoute && $isNotAuthMethod && !in_array($api['class'], $authNotRequiredClasses)) {
+//             ApiHandler::authHandleApiRequest($api['class'], $requestMethod, $requestUri);
+//         } else {
+//             ApiHandler::handleApiRequest($api['class'], $requestMethod, $requestUri);
+//         }
+
+//         exit;
+//     }
+// }
+
+// echo 'Not Found';
+
+
+
+
+
+
+
+
+
+// switch (true) {
+//     case isRequestUriMatch('/teaching'):
+//         if($requestMethod == "GET"){
+//         handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
+//         }else{
+//         authHandleApiRequest(TeachingApi::class, $requestMethod,$requestUri); 
+//         }
+          
+//         break;
+//         case isRequestUriMatch('/news'):
+//             if($requestMethod == "GET"){
+//                 handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
+//                 }else{
+//                 authHandleApiRequest(TeachingApi::class, $requestMethod,$requestUri); 
+//                 }
+//         break;
+//        case isRequestUriMatch('/setToken'):
+//          handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
+//         break;
+//         case isRequestUriMatch('/register'):
+//         authHandleApiRequest(RegisterApi::class, $requestMethod, $requestUri);
+//         break;
+//         case isRequestUriMatch('/user'):
+//         authHandleApiRequest(UsersApi::class, $requestMethod, $requestUri);
+//         break;
+//     default:
+//         echo 'Not Found';
+// }
 
 
 

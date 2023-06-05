@@ -51,7 +51,6 @@ class UsersController {
           
             $this->saveToken($user['id'], $token);
 
-            // Update the token in the Users table
             $this->updateUserToken($user['id'], $token);
             $response = new Response(['token' => $token]);
             return $response;

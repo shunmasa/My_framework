@@ -130,7 +130,71 @@ class RequestHandler {
         }
 
         return null;
-    }
+    
 }
 
+public function getText()
+{
+    // Check if text is present in the request parameters
+    if (isset($this->request['text'])) {
+        return $this->request['text'];
+    }
+
+    // Check if text is present in the JSON body
+    $bodyData = $this->getBody();
+    if ($bodyData && isset($bodyData['text'])) {
+        return $bodyData['text'];
+    }
+
+    return null;
+}
+
+        public function getSlug()
+        {
+            // Check if slug is present in the request parameters
+            if (isset($this->request['slug'])) {
+                return $this->request['slug'];
+            }
+    
+            // Check if slug is present in the JSON body
+            $bodyData = $this->getBody();
+            if ($bodyData && isset($bodyData['slug'])) {
+                return $bodyData['slug'];
+            }
+    
+            return null;
+        }
+    
+        public function getLanguage()
+        {
+            // Check if language is present in the request parameters
+            if (isset($this->request['language'])) {
+                return $this->request['language'];
+            }
+    
+            // Check if language is present in the JSON body
+            $bodyData = $this->getBody();
+            if ($bodyData && isset($bodyData['language'])) {
+                return $bodyData['language'];
+            }
+    
+            return null;
+        }
+
+        public function getArticle()
+{
+    // Check if language is present in the request parameters
+    if (isset($this->request['article'])) {
+        return $this->request['article'];
+    }
+
+    // Check if language is present in the JSON body
+    $bodyData = $this->getBody();
+    if ($bodyData && isset($bodyData['article'])) {
+        return $bodyData['article'];
+    }
+
+    return null;
+}
+    }
 ?>

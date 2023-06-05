@@ -3,10 +3,8 @@
 use Predis\Client;
 
 
-
-
 class RedisCache {
-    private  Client $redis;
+    private $redis;
 
     public function __construct() {
         $this->redis = new Client([
@@ -25,9 +23,7 @@ class RedisCache {
             error_log("Cache miss for key: $key");
             return null;
         }
-
     }
-
 
     public function set(string $key, $data, int $expiration = 0) {
         $serializedData = serialize($data);
@@ -36,15 +32,55 @@ class RedisCache {
         } else {
             $this->redis->set($key, $serializedData);
         }
-        // setcookie('auth_token', $data['auth_token'], time() + 86400, "/");
     }
 
     public function delete(string $key) {
         $this->redis->del([$key]);
     }
+    
+    public function push(string $key, $value) {
+        $serializedValue = serialize($value);
+        $this->redis->rpush($key, [$serializedValue]);
+    }
+    
+    
+    public function pull(string $key) {
+        $value = $this->redis->lpop($key);
+        return $value ? unserialize($value) : null;
+    }
+    
+    public function flash(string $key, $value) {
+        $this->redis->set($key, serialize($value));
+        $this->redis->expire($key, 60); // Set an expiration time of 60 seconds
+    }
+    
+    public function increment(string $key, int $amount = 1) {
+        return $this->redis->incrby($key, $amount);
+    }
+    
+    public function decrement(string $key, int $amount = 1) {
+        return $this->redis->decrby($key, $amount);
+    }
+    
+    public function reflash() {
+        // Extend the expiration time of all flash keys by 60 seconds
+        $flashKeys = $this->redis->keys('flash:*');
+        foreach ($flashKeys as $key) {
+            $this->redis->expire($key, 60);
+        }
+    }
+    
+    public function keep(array $keys) {
+        // Extend the expiration time of specified flash keys by 60 seconds
+        foreach ($keys as $key) {
+            $this->redis->expire($key, 60);
+        }
+    }
+    
+    public function now(string $key, $value) {
+        $this->redis->set($key, serialize($value));
+    }
 }
-
-
 
 
 
