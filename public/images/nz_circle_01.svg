@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="nz_01.svg"
+   width="512"
+   height="512"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"><metadata
+   id="metadata61"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+   id="defs59">
+	
+	
+	
+	
+	
+	
+</defs><sodipodi:namedview
+   inkscape:document-rotation="0"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1009"
+   id="namedview57"
+   showgrid="false"
+   inkscape:zoom="1.4275405"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="761"
+   inkscape:window-y="1072"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+
+
+<path
+   style="fill:#0052b4"
+   d="M 512,256 C 512,397.384 397.384,512 256,512 114.616,512 0,397.384 0,256 0,256.061 256,0.028 256,0 397.384,0 512,114.616 512,256 Z"
+   id="path2" /><g
+   id="g10">
+	<path
+   style="fill:#f0f0f0"
+   d="m 256,0 c -0.014,0 -0.029,0 -0.043,0 z"
+   id="path4" />
+	<path
+   style="fill:#f0f0f0"
+   d="M 255.315,256 H 256 c 0,-0.23 0,-0.454 0,-0.685 -0.228,0.229 -0.456,0.457 -0.685,0.685 z"
+   id="path6" />
+	<path
+   style="fill:#f0f0f0"
+   d="M 256,133.565 C 256,88.52 256,59.005 256,0 h -0.043 C 114.592,0.024 0,114.629 0,256 H 133.565 V 180.789 L 208.777,256 h 46.539 c 0.228,-0.228 0.457,-0.456 0.685,-0.685 0,-17.247 0,-32.636 0,-46.537 l -75.213,-75.213 z"
+   id="path8" />
+</g><path
+   id="path12"
+   d="M 129.515,33.391 C 89.476,56.19 56.19,89.476 33.391,129.515 V 256 h 66.783 V 100.176 100.174 H 256 c 0,-21.063 0,-41.129 0,-66.783 H 129.515 Z"
+   style="fill:#d80027" /><path
+   id="path14"
+   d="m 256,224.519 -90.953,-90.953 c 0,0 -31.481,0.002 -31.481,0 v 0.002 L 255.999,256 H 256 c 0,0 0,-21.707 0,-31.481 z"
+   style="fill:#d80027" /><path
+   id="polygon18"
+   style="fill:#d80027;stroke:#ffffff;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="m 390.51988,327.6333 10.38584,31.96319 h 33.60582 l -27.18937,19.75176 10.38709,31.96193 -27.18938,-19.75302 -27.18938,19.75302 10.3871,-31.96193 -27.18938,-19.75176 h 33.60582 z" /><path
+   id="polygon20"
+   style="fill:#d80027;stroke:#ffffff;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="m 390.04201,85.711733 8.6555,26.636817 h 28.00506 l -22.65865,16.45772 8.65549,26.63557 -22.6574,-16.46273 -22.65614,16.46273 8.65424,-26.63557 -22.65615,-16.45772 h 28.00381 z" /><path
+   id="polygon22"
+   style="fill:#d80027;stroke:#ffffff;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="m 317.55849,215.58377 10.38585,-31.96318 10.38458,31.96318 H 371.936 l -27.18938,19.75177 10.38709,31.96193 -27.18937,-19.75302 -27.18938,19.75302 10.38709,-31.96193 -27.18938,-19.75177 z" />
+<g
+   id="g26">
+</g>
+<g
+   id="g28">
+</g>
+<g
+   id="g30">
+</g>
+<g
+   id="g32">
+</g>
+<g
+   id="g34">
+</g>
+<g
+   id="g36">
+</g>
+<g
+   id="g38">
+</g>
+<g
+   id="g40">
+</g>
+<g
+   id="g42">
+</g>
+<g
+   id="g44">
+</g>
+<g
+   id="g46">
+</g>
+<g
+   id="g48">
+</g>
+<g
+   id="g50">
+</g>
+<g
+   id="g52">
+</g>
+<g
+   id="g54">
+</g>
+<path
+   d="m 446.79969,210.79205 8.95062,-27.54616 8.94952,27.54616 h 28.96288 l -23.43205,17.02225 8.95169,27.54508 -23.43204,-17.02333 -23.43205,17.02333 8.95168,-27.54508 -23.43205,-17.02225 z"
+   style="fill:#d80027;stroke:#ffffff;stroke-width:5.17085;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   id="polygon22-4" /></svg>

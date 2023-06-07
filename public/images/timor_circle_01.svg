@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   height="662"
+   width="662"
+   sodipodi:docname="east_timor_circle_01.svg"
+   version="1.1"
+   viewBox="0 0 662 662"
+   data-name="Layer 1"
+   id="Layer_1">
+  <metadata
+     id="metadata1562">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="Layer_1"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="331"
+     inkscape:cx="331"
+     inkscape:zoom="0.69933333"
+     showgrid="false"
+     id="namedview1560"
+     inkscape:window-height="1009"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs1547">
+    <style
+       id="style1542">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#ce1126;}.cls-4{fill:#d72727;}.cls-5{fill:#ffc61f;}.cls-6{fill:#231f20;}.cls-7{fill:#fff;}</style>
+    <clipPath
+       id="clip-path">
+      <circle
+         id="circle1544"
+         r="331"
+         cy="500"
+         cx="750"
+         class="cls-1" />
+    </clipPath>
+  </defs>
+  <title
+     id="title1549">Timor-Leste</title>
+  <g
+     transform="translate(-419,-169)"
+     id="g1557"
+     clip-path="url(#clip-path)"
+     class="cls-2">
+    <rect
+       id="rect1551"
+       height="693.27002"
+       width="1039.91"
+       y="163.21001"
+       x="215.88"
+       class="cls-3" />
+    <rect
+       height="835.46002"
+       width="712"
+       y="88.949997"
+       x="411.76001"
+       class="cls-4"
+       data-name="4"
+       id="_4" />
+    <polygon
+       points="411.76,924.41 411.76,88.95 767.76,506.68 "
+       class="cls-5"
+       data-name="3"
+       id="_3" />
+    <polygon
+       points="411.76,924.41 411.76,88.95 645.9,506.68 "
+       class="cls-6"
+       data-name="2"
+       id="_2" />
+    <path
+       d="m 518.19,492.57 38.34,-16 -21.08,36.18 26.55,31.39 -40.84,-9.91 -21.89,36 -3.35,-42.23 -40.92,-9.2 38.65,-16 -3.28,-41.86 z"
+       class="cls-7"
+       data-name="1"
+       id="_1" />
+  </g>
+</svg>

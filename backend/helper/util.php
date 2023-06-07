@@ -24,12 +24,24 @@ trait UrlSeparationTrait {
         $urlParts = $this->separateUrl($endpoint);
         return isset($urlParts[0]) ?  "/" . $urlParts[0] : '';
     }
+    public function getItem(string $endpoint): string {
+        $urlParts = $this->separateUrl($endpoint);
+        return isset($urlParts[2]) ?  "/" . $urlParts[2] : '';
+    }
     public function getCategoryId(string $endpoint): string {
         $urlParts = $this->separateUrl($endpoint);
         if ($this->getCollection($endpoint) == '/collections') {
             return isset($urlParts[1]) ? $urlParts[1] : '';;
         } else {
             throw new Exception("Invalid endpoint for getting collection ID");
+        }
+    }
+    public function getNewsId(string $endpoint): string {
+        $urlParts = $this->separateUrl($endpoint);
+        if ($this->getItem($endpoint) == '/items') {
+            return isset($urlParts[3]) ? $urlParts[3] : '';;
+        } else {
+            throw new Exception("Invalid endpoint for getting item ID");
         }
     }
 }

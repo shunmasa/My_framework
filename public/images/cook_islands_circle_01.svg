@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   height="584.271"
+   width="584.271"
+   sodipodi:docname="cook_islands_circle_01.svg"
+   version="1.1"
+   viewBox="0 0 584.271 584.271"
+   data-name="Layer 1"
+   id="Layer_1">
+  <metadata
+     id="metadata70">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="Layer_1"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="337.006"
+     inkscape:cx="337.006"
+     inkscape:zoom="0.69933333"
+     showgrid="false"
+     id="namedview68"
+     inkscape:window-height="1009"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#ce1126;}.cls-4{fill:#00247d;}.cls-5{fill:#fff;}.cls-6{fill:#cf142b;}</style>
+    <clipPath
+       id="clip-path">
+      <circle
+         id="circle4"
+         r="331"
+         cy="500"
+         cx="750"
+         class="cls-1" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1531-2-2-8-3">
+      <circle
+         style="fill:#0000ff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="circle1533-5-3-5-92"
+         cx="450"
+         cy="300"
+         r="294.70926" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1527-3-5-7-4">
+      <circle
+         style="fill:#0000ff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="circle1529-5-7-4-0"
+         cx="450"
+         cy="300"
+         r="294.70926" />
+    </clipPath>
+  </defs>
+  <title
+     id="title9">Cook Islands</title>
+  <g
+     style="fill:#b3b3b3;stroke:none;stroke-width:10.0881;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="g1537-4"
+     transform="scale(0.99126679)">
+    <path
+       style="fill:#b3b3b3;stroke:none;stroke-width:10.0881;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(-155.29074,-5.290741)"
+       clip-path="url(#clipPath1531-2-2-8-3)"
+       id="path946-8"
+       d="M 0,0 H 900 V 600 H 0 Z"
+       fill="#ffffff" />
+    <path
+       style="fill:#b3b3b3;stroke:none;stroke-width:10.0881;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(-155.29074,-5.290741)"
+       clip-path="url(#clipPath1527-3-5-7-4)"
+       id="path948-5"
+       d="M 0,0 H 900 V 300 H 0 Z"
+       fill="#ff0000" />
+  </g>
+  <g
+     style="stroke-width:1.15682"
+     transform="matrix(0.86443958,0,0,0.86443958,-356.19418,-140.08429)"
+     id="g65"
+     clip-path="url(#clip-path)"
+     class="cls-2">
+    <rect
+       style="stroke-width:1.15682"
+       id="rect11"
+       height="693.27002"
+       width="1039.91"
+       y="163.21001"
+       x="215.88"
+       class="cls-3" />
+    <rect
+       style="stroke-width:1.15682"
+       id="rect13"
+       height="796.17999"
+       width="683.02002"
+       y="70.260002"
+       x="408.89999"
+       class="cls-4" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline15"
+       points="891.96 464.1 898.44 483.86 919.73 483.86 902.53 496.64 909 516.57 891.96 504.31 874.58 516.57 881.06 496.64 864.02 483.86 885.32 483.86"
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline17"
+       points="974.5 507.47 954.13 512.18 951.9 533.36 941.07 514.92 920.61 519.28 934.62 503.62 924.24 485.05 943.31 493.57 957.72 477.95 955.57 498.45"
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline19"
+       points="1015.96 550.78 995.41 546.93 984.88 565.44 982.36 544.21 961.87 539.99 980.97 531.26 978.92 510.1 992.97 525.54 1012.43 517.02 1002.24 534.94"
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline21"
+       points="1034.91 607.64 1017.78 595.66 1000.55 608.17 1007.01 587.79 990.08 575.5 1011.09 575.43 1017.95 555.3 1024.38 575.17 1045.62 575.43 1028.94 587.55"
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline23"
+       points="1030.22 667.9 1019.5 649.95 998.65 654.32 1012.89 638.37 1002.47 620.23 1021.66 628.76 1036.16 613.2 1033.9 633.96 1053.18 642.88 1033 647.12"
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon25"
+       points="1008.6,681.37 1028.1,672.9 1017.73,691.02 1031.83,706.92 1011.64,702.73 1000.78,720.66 998.13,699.92 977.28,695.59 996.71,686.66 994.41,665.87 "
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline27"
+       points="986.52 756.22 969.39 744.23 952.16 756.75 958.62 736.36 941.69 724.07 962.7 724 969.56 703.87 975.99 723.74 997.23 724 980.55 736.12"
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline29"
+       points="925.61 784.1 914.88 766.15 894.04 770.52 908.27 754.57 897.85 736.43 917.05 744.96 931.54 729.4 929.28 750.16 948.56 759.09 928.39 763.32"
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon31"
+       points="866.5,744.85 886.01,736.38 875.63,754.51 889.73,770.4 869.54,766.21 858.69,784.14 856.03,763.41 835.18,759.08 854.61,750.14 852.31,729.35 "
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline33"
+       points="831.13 756.22 814 744.23 796.77 756.75 803.23 736.36 786.3 724.07 807.31 724 814.17 703.87 820.6 723.74 841.85 724 825.17 736.12"
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon35"
+       points="755.07,672.53 765.49,690.67 751.26,706.63 772.1,702.26 782.83,720.2 785.61,699.43 805.78,695.19 786.5,686.26 788.76,665.5 774.27,681.07 "
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline37"
+       points="799.36 565.33 788.63 547.38 767.78 551.75 782.02 535.8 771.6 517.66 790.8 526.19 805.29 510.63 803.03 531.39 822.31 540.32 802.13 544.55"
+       class="cls-5" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline39"
+       points="782.91 607.81 765.78 595.83 748.55 608.35 755.01 587.96 738.09 575.67 759.09 575.6 765.95 555.47 772.38 575.34 793.63 575.6 776.95 587.72"
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon41"
+       points="761.71,628.65 781.22,620.18 770.85,638.31 784.95,654.2 764.76,650.01 753.9,667.94 751.25,647.21 730.4,642.88 749.83,633.94 747.53,613.15 "
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon43"
+       points="839.92,493.54 859.43,485.07 849.05,503.19 863.15,519.09 842.97,514.9 832.11,532.83 829.45,512.1 808.6,507.76 828.03,498.83 825.74,478.04 "
+       class="cls-5" />
+    <rect
+       style="stroke-width:1.15682"
+       id="rect45"
+       height="205.3"
+       width="68.43"
+       y="173.33"
+       x="578.92999"
+       class="cls-5" />
+    <rect
+       style="stroke-width:1.15682"
+       id="rect47"
+       height="68.910004"
+       width="410.60001"
+       y="240.81"
+       x="408.09"
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon49"
+       points="408.09,356.14 408.09,378.97 454.99,378.63 818.68,196.78 818.17,173.33 772.26,173.33 "
+       class="cls-5" />
+    <polygon
+       style="stroke-width:1.15682"
+       id="polygon51"
+       points="456.42,173.33 408.09,173.33 408.09,196.78 773.22,378.97 818.68,378.63 818.68,355.66 "
+       class="cls-5" />
+    <rect
+       style="stroke-width:1.15682"
+       id="rect53"
+       height="205.3"
+       width="41.630001"
+       y="173.33"
+       x="592.81"
+       class="cls-6" />
+    <rect
+       style="stroke-width:1.15682"
+       id="rect55"
+       height="40.68"
+       width="410.60001"
+       y="255.64"
+       x="408.09"
+       class="cls-6" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline57"
+       points="408.09 189.13 514.81 241.29 543.52 241.29 408.09 173.33 408.09 189.13"
+       class="cls-6" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline59"
+       points="682.78 310.68 818.68 378.63 818.17 361.81 713.4 310.68 682.78 310.68"
+       class="cls-6" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline61"
+       points="788.06 173.16 652.63 241.46 684.69 241.46 818.68 173.16 788.06 173.16"
+       class="cls-6" />
+    <polyline
+       style="stroke-width:1.15682"
+       id="polyline63"
+       points="543.52 310.68 408.09 378.97 440.15 378.97 574.14 310.68 543.52 310.68"
+       class="cls-6" />
+  </g>
+</svg>
