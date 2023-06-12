@@ -19,12 +19,12 @@ class UpdateApi {
         $this->router = new Router();
         $this->category = new CategoryController($this->dbConnect);
         $updateController = new UpdateController($this->dbConnect);
-        $base = $this->getCollection($endpoint);
+        // $base = $this->getCollection($endpoint);
         $category_id = $this->getCategoryId($endpoint);
         $item_id = $this->getNewsId($endpoint);
 
 
-    $this->router->addRoute( $method, $base . '/'. $category_id . '/'. $item_id,function ($request) use ($updateController, $category_id,$item_id) {
+    $this->router->addRoute( $method,   '/collections/'. $category_id . '/items/'. $item_id,function ($request) use ($updateController, $category_id,$item_id) {
         $requestHandler = new RequestHandler();
       
         $name = $requestHandler->getName();

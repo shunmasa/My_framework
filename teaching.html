@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teaching List</title>
+</head>
+
+<body>
+    <h1>This is Teahcing</h1>
+    <ul>
+    <?php foreach ($data['data'] as $item): ?>
+        <li><?= $item['name']; ?></li>
+    <?php endforeach; ?>
+
+    </ul>
+</body>
+</html>

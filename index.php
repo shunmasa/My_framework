@@ -10,6 +10,7 @@ require_once './backend/api/users.php';
 require_once './backend/api/create.php';
 require_once './backend/api/token.php';
 require_once './backend/api/register.php';
+require_once './ssr.php';
 require_once './apiHandler.php';
 require 'vendor/autoload.php';
 
@@ -61,9 +62,79 @@ foreach ($apiRoutes as $route => $api) {
     }
 }
 
-echo 'Not Found';
+// echo 'Not Found';
 
 
+
+////////////////////////////////////////////////////////////////
+////////////SSR/////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+//how to set lamguage in routes?
+$routes = [
+    'tletter' => 'tletter',
+    'home' => 'home',
+    'news' => 'news'
+ 
+    // 'about' => 'about',
+    // 'contact' => 'contact',
+];
+
+$apiEndpoints = [
+    // 'home' => 'http://localhost:8080/dpm_0.1/teaching',
+    '{language}/tletter' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
+    '{language}/home' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
+    
+    // 'about' => 'http://localhost:8080/dpm_0.1/teaching',
+    // 'contact' => 'http://localhost:8080/dpm_0.1/teaching',
+];
+
+$templatePath = '';
+
+$requestUri = $_SERVER['REQUEST_URI'];
+
+$route = trim(parse_url($requestUri, PHP_URL_PATH), '/');
+$route = preg_replace('/^dpm_0\.1\//', '', $route);
+
+$routeParts = explode('/', $route);
+// $route = end($routeParts);
+// $language = $routeParts[0];
+
+$ssr = new SSR($routes, $apiEndpoints, $templatePath);
+// $language = $ssr->getLanguageFromRoute($routeParts[0]);
+$ssr->setLanguage($routeParts[0]);
+
+$ssr->replaceLanguagePlaceholder($routeParts[0]); 
+
+var_dump($routeParts[1]);
+
+// if (isset($routes[$route])) {
+   
+
+// Set the template path based on the route
+switch ($routeParts[1]) {
+
+    case 'home':
+        $ssr->setTemplatePath('home.html');
+        break;
+    case 'tletter':
+        $ssr->setTemplatePath('teaching.html');
+         break;
+    default:
+        $ssr->setTemplatePath('template.html');
+        break;
+}
+
+
+$ssr->render($route);
+
+
+
+// $renderer->render($route);
+
+//}
+// else {
+//     echo "Invalid route specified.";
+// }
 
 
 

@@ -19,12 +19,12 @@ class CreateApi {
         $this->router = new Router();
         $this->category = new CategoryController($this->dbConnect);
         $createController = new CreateController($this->dbConnect);
-        $base = $this->getCollection($endpoint);
+        // $base = $this->getCollection($endpoint);
         $category_id = $this->getCategoryId($endpoint);
 
 
 
-    $this->router->addRoute( $method, $base . '/'. $category_id, function ($request) use ($createController, $category_id) {
+    $this->router->addRoute( $method, '/collections/'. $category_id, function ($request) use ($createController, $category_id) {
         $requestHandler = new RequestHandler();
       
         $name = $requestHandler->getName();

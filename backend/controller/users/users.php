@@ -1,9 +1,9 @@
 <?php
 require_once './backend/database/connect.php';
-
+require_once './backend/core/api_caches.php';
 class UsersController {
     private PDO $db;
-
+    // private RedisCache $radis;
     public function __construct(DatabaseConnect $dbConnect) {
         $this->db = $dbConnect->connect();
      
@@ -31,6 +31,10 @@ class UsersController {
         $statement = $this->db->prepare($query);
         $statement->execute(['email' => $email, 'password' => $hashedPassword, 'name' => $name, 'token' => $token]);
     
+        
+
+        // $this->radis->set('auth_token', serialize($token));
+
         // Create the response with the registered user data
         $response = new Response(['message' => 'New user is registered']);
     
