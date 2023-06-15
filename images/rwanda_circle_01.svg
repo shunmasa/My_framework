@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   height="662"
+   width="662"
+   sodipodi:docname="Rwanda-39.svg"
+   version="1.1"
+   viewBox="0 0 662 662"
+   data-name="Layer 1"
+   id="Layer_1">
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="Layer_1"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="331"
+     inkscape:cx="331"
+     inkscape:zoom="0.69933333"
+     showgrid="false"
+     id="namedview28"
+     inkscape:window-height="1009"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#20603d;}.cls-4{fill:#fad201;}.cls-5{fill:#00a1de;}.cls-6,.cls-7{fill:#e5be01;}.cls-7{stroke:#00a1de;stroke-width:3.4px;}</style>
+    <clipPath
+       id="clip-path">
+      <circle
+         id="circle4"
+         r="331"
+         cy="500"
+         cx="750"
+         class="cls-1" />
+    </clipPath>
+  </defs>
+  <title
+     id="title9">Rwanda</title>
+  <g
+     transform="translate(-419,-169)"
+     id="g25"
+     clip-path="url(#clip-path)"
+     class="cls-2">
+    <rect
+       id="rect11"
+       height="662"
+       width="993"
+       y="169"
+       x="115.5"
+       class="cls-3" />
+    <rect
+       id="rect13"
+       height="496.5"
+       width="993"
+       y="169"
+       x="115.5"
+       class="cls-4" />
+    <rect
+       id="rect15"
+       height="331"
+       width="993"
+       y="169"
+       x="115.5"
+       class="cls-5" />
+    <g
+       id="h">
+      <path
+         d="m 1037.34,342 -73.94,4.32 70.3,23.31 -72.53,-15 61.83,40.69 -66.15,-33.22 49.22,55.33 -55.33,-49.22 33.26,66.18 -40.71,-61.86 15,72.53 -23.31,-70.3 -4.32,73.94 -0.99,-107.7 z"
+         class="cls-6"
+         id="q" />
+      <path
+         d="m 1037.34,342 -73.94,-4.32 70.3,-23.31 -72.53,15 61.83,-40.8 -66.15,33.23 49.22,-55.33 -55.33,49.22 33.26,-66.19 -40.71,61.87 15,-72.53 -23.31,70.29 -4.32,-73.93 -0.92,107.67 z"
+         class="cls-6"
+         data-name="q"
+         id="q-2" />
+    </g>
+    <g
+       data-name="h"
+       id="h-2">
+      <path
+         d="m 823.84,342 73.93,4.32 -70.29,23.31 72.53,-15 -61.87,40.71 66.19,-33.22 -49.22,55.33 55.33,-49.22 -33.23,66.18 40.71,-61.86 -15,72.53 23.31,-70.3 4.32,73.94 0.96,-107.72 z"
+         class="cls-6"
+         data-name="q"
+         id="q-3" />
+      <path
+         d="m 823.84,342 73.93,-4.32 -70.29,-23.31 72.53,15 -61.87,-40.71 66.19,33.23 -49.22,-55.33 55.33,49.22 -33.23,-66.28 40.71,61.87 -15,-72.53 23.31,70.29 4.32,-73.93 0.92,107.67 z"
+         class="cls-6"
+         data-name="q"
+         id="q-4" />
+    </g>
+    <circle
+       id="circle23"
+       r="31.540001"
+       cy="341.95001"
+       cx="930.59003"
+       class="cls-7" />
+  </g>
+</svg>

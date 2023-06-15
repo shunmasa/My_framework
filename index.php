@@ -80,7 +80,7 @@ $routes = [
 ];
 
 $apiEndpoints = [
-    // 'home' => 'http://localhost:8080/dpm_0.1/teaching',
+     'home' => 'http://localhost:8080/dpm_0.1/teaching',
     '{language}/tletter' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
     '{language}/home' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
     
@@ -105,107 +105,41 @@ $ssr->setLanguage($routeParts[0]);
 
 $ssr->replaceLanguagePlaceholder($routeParts[0]); 
 
-var_dump($routeParts[1]);
+// var_dump($routeParts[1]);
 
 // if (isset($routes[$route])) {
    
 
 // Set the template path based on the route
+
+
+
+
 switch ($routeParts[1]) {
 
     case 'home':
-        $ssr->setTemplatePath('home.html');
+        $ssr->setTemplatePath('home');
         break;
     case 'tletter':
         $ssr->setTemplatePath('teaching.html');
          break;
+    case 'css':
+            $cssFileName = end($routeParts);
+            $ssr->setTemplatePath($cssFileName);
+    case 'js':
+            $jsFileName = end($routeParts);
+            $ssr->setTemplatePath($jsFileName);
+        break;
+
     default:
-        $ssr->setTemplatePath('template.html');
+        //  $ssr->setTemplatePath('derekprince.css');
+        //  $ssr->setTemplatePath('normalize.css');
+      
         break;
 }
 
-
+// $ssr->setTemplatePath('home.php');
 $ssr->render($route);
 
-
-
-// $renderer->render($route);
-
-//}
-// else {
-//     echo "Invalid route specified.";
-// }
-
-
-
-// $apiRoutes = [
-//     '/teaching' => ['class' => TeachingApi::class, 'auth' => true, 'not_auth' => ['GET']],// GET deoes not need auth , but else needs auth
-//     '/news' => ['class' => NewsApi::class, 'auth' => true, 'not_auth' => ['GET']],// GET deoes not need auth , but else needs auth
-//     '/setToken' => ['class' => TokenApi::class, 'auth' => false, 'not_auth' => []],// not auth
-//     '/register' => ['class' => RegisterApi::class, 'auth' => false, 'not_auth' => []],//not auth 
-//     '/user' => ['class' => UsersApi::class, 'auth' => true, 'not_auth' => []],//auth 
-//     '/collections' =>['class' => UsersApi::class, 'auth' => true, 'not_auth' => []]
-// ];
-
-// $authNotRequiredClasses = [TeachingApi::class, NewsApi::class, TokenApi::class];
-
-// foreach ($apiRoutes as $route => $api) {
-//     if (isRequestUriMatch($route)) {
-//         $isAuthRoute = $api['auth'] && $route !== '/user';
-//         $isNotAuthMethod = $requestMethod === 'GET' && !in_array($requestMethod, $api['not_auth']);
-
-//         if ($isAuthRoute && $isNotAuthMethod && !in_array($api['class'], $authNotRequiredClasses)) {
-//             ApiHandler::authHandleApiRequest($api['class'], $requestMethod, $requestUri);
-//         } else {
-//             ApiHandler::handleApiRequest($api['class'], $requestMethod, $requestUri);
-//         }
-
-//         exit;
-//     }
-// }
-
-// echo 'Not Found';
-
-
-
-
-
-
-
-
-
-// switch (true) {
-//     case isRequestUriMatch('/teaching'):
-//         if($requestMethod == "GET"){
-//         handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
-//         }else{
-//         authHandleApiRequest(TeachingApi::class, $requestMethod,$requestUri); 
-//         }
-          
-//         break;
-//         case isRequestUriMatch('/news'):
-//             if($requestMethod == "GET"){
-//                 handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
-//                 }else{
-//                 authHandleApiRequest(TeachingApi::class, $requestMethod,$requestUri); 
-//                 }
-//         break;
-//        case isRequestUriMatch('/setToken'):
-//          handleApiRequest(TokenApi::class, $requestMethod, $requestUri);
-//         break;
-//         case isRequestUriMatch('/register'):
-//         authHandleApiRequest(RegisterApi::class, $requestMethod, $requestUri);
-//         break;
-//         case isRequestUriMatch('/user'):
-//         authHandleApiRequest(UsersApi::class, $requestMethod, $requestUri);
-//         break;
-//     default:
-//         echo 'Not Found';
-// }
-
-
-
-
-
-// 
+ 
  ?>

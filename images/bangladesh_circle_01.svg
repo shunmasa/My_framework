@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   height="662"
+   width="662"
+   sodipodi:docname="bangladesh_circle_01.svg"
+   version="1.1"
+   viewBox="0 0 662 662"
+   data-name="Layer 1"
+   id="Layer_1">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="Layer_1"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="331"
+     inkscape:cx="331"
+     inkscape:zoom="0.69933333"
+     showgrid="false"
+     id="namedview18"
+     inkscape:window-height="1009"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#064;}.cls-4{fill:#d80529;}</style>
+    <clipPath
+       id="clip-path">
+      <circle
+         id="circle4"
+         r="331"
+         cy="500"
+         cx="750"
+         class="cls-1" />
+    </clipPath>
+  </defs>
+  <title
+     id="title9">Flag-of-Bangladesh</title>
+  <g
+     transform="translate(-419,-169)"
+     id="g15"
+     clip-path="url(#clip-path)"
+     class="cls-2">
+    <polygon
+       id="polygon11"
+       points="-1.5,0.62 -1.5,1000 378.58,1000 1501.5,1000 1501.5,0.62 378.76,0 380.12,0.62 "
+       class="cls-3" />
+    <circle
+       id="circle13"
+       r="165.02"
+       cy="500"
+       cx="750"
+       class="cls-4" />
+  </g>
+</svg>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   height="662"
+   width="662"
+   sodipodi:docname="china_circle_01.svg"
+   version="1.1"
+   viewBox="0 0 662 662"
+   data-name="Layer 1"
+   id="Layer_1">
+  <metadata
+     id="metadata28">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Flag-of-China</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="Layer_1"
+     inkscape:window-maximized="1"
+     inkscape:window-y="1072"
+     inkscape:window-x="-8"
+     inkscape:cy="331"
+     inkscape:cx="331"
+     inkscape:zoom="0.69933333"
+     showgrid="false"
+     id="namedview26"
+     inkscape:window-height="1009"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#dd2d26;}.cls-4{fill:#fddd00;}</style>
+    <clipPath
+       id="clip-path">
+      <circle
+         id="circle4"
+         r="331"
+         cy="500"
+         cx="750"
+         class="cls-1" />
+    </clipPath>
+  </defs>
+  <title
+     id="title9">Flag-of-China</title>
+  <g
+     transform="translate(-419,-169)"
+     id="g23"
+     clip-path="url(#clip-path)"
+     class="cls-2">
+    <rect
+       y="0"
+       x="0"
+       id="rect11"
+       height="1000"
+       width="1500"
+       class="cls-3" />
+    <polygon
+       id="polygon13"
+       points="589,365.18 505.29,365.18 573.01,414.72 547.14,494.88 614.86,445.34 682.58,494.88 656.71,414.72 724.43,365.18 640.72,365.18 614.86,285.01 "
+       class="cls-4" />
+    <polygon
+       id="polygon15"
+       points="803.58,270.62 777.91,259.62 792.26,283.71 773.95,304.91 801.13,298.61 815.49,322.7 817.93,294.71 845.13,288.4 819.45,277.41 821.9,249.42 "
+       class="cls-4" />
+    <polygon
+       id="polygon17"
+       points="886.19,347.81 866.76,327.63 870.71,355.45 845.66,367.82 873.15,372.64 877.09,400.45 890.13,375.62 917.62,380.43 898.2,360.27 911.24,335.43 "
+       class="cls-4" />
+    <polygon
+       id="polygon19"
+       points="874.64,466.74 846.75,467.75 869.9,483.44 862.23,510.45 884.2,493.14 907.35,508.83 897.78,482.43 919.75,465.11 891.87,466.12 882.3,439.72 "
+       class="cls-4" />
+    <polygon
+       id="polygon21"
+       points="802.99,541.47 776.88,531.55 792.22,555.03 774.79,576.97 801.7,569.54 817.03,593.01 818.33,564.95 845.23,557.51 819.13,547.6 820.42,519.54 "
+       class="cls-4" />
+  </g>
+</svg>
