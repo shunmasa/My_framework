@@ -151,19 +151,6 @@ class Router {
         return $response;
     }
 
-    public function renderHtmlTemplate(string $templateName, array $data): string {
-        error_log("....: " . print_r(  $templateName , true));
-        $templatePath = "./public/$templateName.html";
-     
-        $templateContent = file_get_contents($templatePath);
-   
-        // Replace placeholders with data
-        foreach ($data as $key => $value) {
-            $templateContent = str_replace('{{ ' . $key . ' }}', $value, $templateContent);
-        }
-
-        return $templateContent;
-    }
 
     private function generateCacheKey(Request $request): string {
         // Generate a unique cache key based on the request properties

@@ -10,7 +10,7 @@ require_once './backend/api/users.php';
 require_once './backend/api/create.php';
 require_once './backend/api/token.php';
 require_once './backend/api/register.php';
-require_once './ssr.php';
+require_once './ssg.php';
 require_once './apiHandler.php';
 require 'vendor/autoload.php';
 
@@ -72,7 +72,7 @@ foreach ($apiRoutes as $route => $api) {
 //how to set lamguage in routes?
 $routes = [
     'tletter' => 'tletter',
-    'home' => 'home',
+    'detail_teaching' => 'detail_teaching',
     'news' => 'news'
  
     // 'about' => 'about',
@@ -82,10 +82,7 @@ $routes = [
 $apiEndpoints = [
      'home' => 'http://localhost:8080/dpm_0.1/teaching',
     '{language}/tletter' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
-    '{language}/home' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
-    
-    // 'about' => 'http://localhost:8080/dpm_0.1/teaching',
-    // 'contact' => 'http://localhost:8080/dpm_0.1/teaching',
+    '{language}/detail_teaching' => 'http://localhost:8080/dpm_0.1/{language}/teaching',
 ];
 
 $templatePath = '';
@@ -99,46 +96,63 @@ $routeParts = explode('/', $route);
 // $route = end($routeParts);
 // $language = $routeParts[0];
 
-$ssr = new SSR($routes, $apiEndpoints, $templatePath);
-// $language = $ssr->getLanguageFromRoute($routeParts[0]);
+$ssr = new SSG($apiEndpoints, $templatePath);
+
 $ssr->setLanguage($routeParts[0]);
 
 $ssr->replaceLanguagePlaceholder($routeParts[0]); 
-
-// var_dump($routeParts[1]);
-
-// if (isset($routes[$route])) {
-   
-
-// Set the template path based on the route
 
 
 
 
 switch ($routeParts[1]) {
-
-    case 'home':
-        $ssr->setTemplatePath('home');
-        break;
+   
     case 'tletter':
         $ssr->setTemplatePath('teaching.html');
          break;
+         case 'detail_teaching':
+            $ssr->setTemplatePath('detail_teaching.html');
+            break;
     case 'css':
             $cssFileName = end($routeParts);
-            $ssr->setTemplatePath($cssFileName);
-    case 'js':
-            $jsFileName = end($routeParts);
-            $ssr->setTemplatePath($jsFileName);
+            header('Content-Type: text/css');
+            $ssr->setTemplatePath('css/'. $cssFileName);
+      
         break;
+    case 'js':
+        header('Content-Type: application/javascript');
+            $jsFileName = end($routeParts);
+            $ssr->setTemplatePath('js/' .$jsFileName);
+        break;
+   
+        case 'images':
+            $fileName = end($routeParts);
+            if (strpos($fileName, '.webp') !== false) {
+                header('Content-Type: image/webp');
+                $ssr->setTemplatePath('images/' . $fileName);
+            } elseif (strpos($fileName, '.svg') !== false) {
+                header('Content-Type: image/svg+xml');
+                $ssr->setTemplatePath('images/' . $fileName);
+            } elseif (strpos($fileName, '.png') !== false) {
+                header('Content-Type: image/png');
+                $ssr->setTemplatePath('images/' . $fileName);
+            } else {
+                
+            }
+            break;
+ 
+          case 'fonts':
+            $fontsName = end($routeParts);
+            header('Content-Type: font/woff');
+          $ssr->setTemplatePath('fonts/' . $fontsName);
 
-    default:
-        //  $ssr->setTemplatePath('derekprince.css');
-        //  $ssr->setTemplatePath('normalize.css');
+           default:
+      
       
         break;
 }
 
-// $ssr->setTemplatePath('home.php');
+
 $ssr->render($route);
 
  

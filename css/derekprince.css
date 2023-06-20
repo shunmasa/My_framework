@@ -2513,7 +2513,7 @@ figure {
 
 .div-teaching-100-50vh-1 {
   min-height: 100vh;
-  background-image: url('../images/teaching_letters_01_1001.webp');
+  background-image: url('../images/tl_01_1000.webp');
   background-position: 50%;
   background-size: cover;
   display: flex;
@@ -2545,7 +2545,7 @@ figure {
 
 .div-letter-100-50vh-1 {
   min-height: 100vh;
-  background-image: url('../images/teaching_letters_01_1000.webp');
+  background-image: url('../images/tl_01_1000.webp');
   background-position: 50%;
   background-size: cover;
   display: flex;
@@ -6376,7 +6376,7 @@ figure {
   }
 
   .div-ads-7 {
-    background-image: url('../images/teaching_letters_02_1000.webp');
+    background-image: url('../images/tl_02_1000.webp');
   }
 
   .button-nav-4 {
